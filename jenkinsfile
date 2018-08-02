@@ -1,0 +1,20 @@
+node {
+   echo 'Hello World'
+   sh 'echo "BUILD_DISPLAY_NAME" :: $BUILD_DISPLAY_NAME'
+   sh 'echo "DISABLE_ASSET_COMPILATION1" :: $DISABLE_ASSET_COMPILATION1'
+   sh 'echo "DISABLE_ASSET_COMPILATION2" :: $DISABLE_ASSET_COMPILATION2'
+   
+   
+}
+
+node('maven') {
+       echo 'Hello World Maven Node'
+   sh 'echo "BUILD_DISPLAY_NAME" :: $BUILD_DISPLAY_NAME'
+   sh 'echo "DISABLE_ASSET_COMPILATION1" :: $DISABLE_ASSET_COMPILATION1'
+   sh 'echo "DISABLE_ASSET_COMPILATION2" :: $DISABLE_ASSET_COMPILATION2'
+   
+   
+   
+   def newTag = "TestingCandidate-${env.DISABLE_ASSET_COMPILATION1}"
+   echo "New Tag: ${newTag}"
+}
